@@ -1,10 +1,12 @@
 name: Deploy Using Shared Workflow
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
-  pull_request:
 
 permissions:
   contents: write
@@ -14,7 +16,8 @@ jobs:
   deploy:
     uses: seannguyn/actions/.github/workflows/serverless.yaml@main
     with:
-      docker_repo: ${{ vars.DOCKER_REPO }} 
+      docker_repo: ${{ vars.DOCKER_REPO }}
+      environment: ${{ github.event_name == 'pull_request' && 'dev' || 'prod' }}
     secrets:
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       GH_PAT: ${{ secrets.GH_PAT }}
