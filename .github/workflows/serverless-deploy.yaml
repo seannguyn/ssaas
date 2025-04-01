@@ -7,7 +7,7 @@ on:
       - main  # Only trigger for PRs targeting main
   push:
     branches:
-      - main  # Triggers on push to main
+      - main  # Triggers on push to main.
 
 permissions:
   contents: write
