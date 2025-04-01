@@ -18,7 +18,6 @@ jobs:
     environment: ${{ github.event_name == 'pull_request' && 'dev' || 'prod' }}
     with:
       docker_repo: ${{ vars.DOCKER_REPO }}
-      # environment: ${{ github.event_name == 'pull_request' && 'dev' || 'prod' }}
     secrets:
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       GH_PAT: ${{ secrets.GH_PAT }}
