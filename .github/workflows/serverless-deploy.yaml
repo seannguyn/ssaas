@@ -25,4 +25,4 @@ jobs:
   dummy:
     uses: seannguyn/actions/.github/workflows/dummy.yaml@main
     with:
-      environment: ${{ github.event_name == 'pull_request' && 'dev' || 'prod' }}
+      environment_name: ${{ github.event_name == 'pull_request' && 'dev' || 'prod' }}
